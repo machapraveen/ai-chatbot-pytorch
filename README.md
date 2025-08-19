@@ -1,46 +1,38 @@
-# 🤖 AI Chatbot PyTorch
+# 🚀 AI Chatbot PyTorch
 
 <div align="center">
 
-![AI/ML](https://img.shields.io/badge/AI%2FML-Neural%20Networks-blue?style=for-the-badge&logo=tensorflow&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3.8%2B-green?style=for-the-badge&logo=python&logoColor=white)
+![AI/ML](https://img.shields.io/badge/AI%2FML-complex-blue?style=for-the-badge)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Stars](https://img.shields.io/github/stars/machapraveen/ai-chatbot-pytorch?style=for-the-badge)](https://github.com/machapraveen/ai-chatbot-pytorch/stargazers)
-[![Issues](https://img.shields.io/github/issues/machapraveen/ai-chatbot-pytorch?style=for-the-badge)](https://github.com/machapraveen/ai-chatbot-pytorch/issues)
 
 </div>
 
-## 🚀 Overview
+## 🎯 Overview
 
 Neural chatbot using PyTorch with intent classification and custom training pipeline
 
-This cutting-edge AI/ML project demonstrates advanced techniques in artificial intelligence, featuring Intent-based responses, Neural network training, NLTK preprocessing and state-of-the-art implementations.
+This project demonstrates advanced techniques in AI/ML, featuring cutting-edge implementations and modern development practices.
 
-## ✨ Features
+## ✨ Key Features
 
-- ✨ **Intent-based responses**
-- ✨ **Neural network training**
-- ✨ **NLTK preprocessing**
-- ✨ **Custom function mapping**
-- ✨ **Model persistence**
+- 🔥 **Intent-based responses**
+- 🔥 **Neural network training**
+- 🔥 **NLTK preprocessing**
+- 🔥 **Custom function mapping**
+- 🔥 **Model persistence**
 
-## 🛠️ Tech Stack
+## 🛠️ Technology Stack
 
 - Python
 - PyTorch
 - NLTK
 - JSON
 
-## 📋 Prerequisites
-
-- Python 3.8 or higher
-- pip package manager
-- Git for version control
-
-## ⚡ Quick Start
+## 🚀 Quick Start
 
 ### 1️⃣ Clone the Repository
 ```bash
@@ -50,28 +42,24 @@ cd ai-chatbot-pytorch
 
 ### 2️⃣ Install Dependencies
 ```bash
-pip install opencv-python
+pip install -r requirements.txt
 ```
 
 ### 3️⃣ Run the Application
 ```bash
-python main.py
+python main.py  # or app.py depending on the project structure
 ```
 
-## 🎯 Usage
+## 📖 Usage
 
-Explore the AI/ML functionality through the main application files.
-
-## 📊 Performance
-
-Performance metrics and benchmarks will be added based on testing results.
+Detailed usage instructions will be provided based on the specific project requirements and functionality.
 
 ## 🔮 Future Enhancements
 
-- [ ] Advanced model architectures
-- [ ] Real-time processing capabilities
-- [ ] Enhanced accuracy improvements
-- [ ] Mobile/edge deployment options
+- [ ] Enhanced performance optimizations
+- [ ] Additional feature implementations
+- [ ] Mobile/responsive design improvements
+- [ ] Advanced analytics and monitoring
 
 ## 🤝 Contributing
 
@@ -90,7 +78,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🌟 Acknowledgments
 
 - Thanks to the open-source community for inspiration
-- Built with passion for advancing AI/ML technology
+- Built with passion for advancing technology
 
 ## 📞 Contact
 
