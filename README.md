@@ -1,95 +1,178 @@
-# 🚀 AI Chatbot PyTorch
+# AI Chatbot with PyTorch Neural Networks
 
-<div align="center">
+A conversational AI chatbot built from scratch using PyTorch neural networks and natural language processing. The chatbot uses intent classification with a custom neural network to understand user queries and provide contextual responses.
 
-![AI/ML](https://img.shields.io/badge/AI%2FML-complex-blue?style=for-the-badge)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+## 🤖 Features
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Stars](https://img.shields.io/github/stars/machapraveen/ai-chatbot-pytorch?style=for-the-badge)](https://github.com/machapraveen/ai-chatbot-pytorch/stargazers)
+- **Neural Network Intent Classification**: Custom 3-layer feedforward network for understanding user intents
+- **Natural Language Processing**: Built-in tokenization and lemmatization using NLTK
+- **Function Mapping**: Ability to trigger custom functions based on detected intents
+- **Model Persistence**: Save and load trained models with their configurations
+- **Interactive Chat Interface**: Command-line conversation interface
+- **Training Pipeline**: Complete data preprocessing and model training workflow
 
-</div>
+## 🛠 Tech Stack
 
-## 🎯 Overview
+- **Deep Learning**: PyTorch, PyTorch Neural Networks
+- **NLP**: NLTK (WordNetLemmatizer, word_tokenize)
+- **Data Processing**: NumPy for numerical operations
+- **Model Architecture**: Feedforward Neural Network with Dropout
+- **Storage**: JSON for intents and model dimensions
 
-Neural chatbot using PyTorch with intent classification and custom training pipeline
+## 📦 Installation
 
-This project demonstrates advanced techniques in AI/ML, featuring cutting-edge implementations and modern development practices.
-
-## ✨ Key Features
-
-- 🔥 **Intent-based responses**
-- 🔥 **Neural network training**
-- 🔥 **NLTK preprocessing**
-- 🔥 **Custom function mapping**
-- 🔥 **Model persistence**
-
-## 🛠️ Technology Stack
-
-- Python
-- PyTorch
-- NLTK
-- JSON
-
-## 🚀 Quick Start
-
-### 1️⃣ Clone the Repository
+1. Clone the repository:
 ```bash
-git clone https://github.com/machapraveen/ai-chatbot-pytorch.git
-cd ai-chatbot-pytorch
+git clone https://github.com/machapraveen/AI-Chatbot-PyTorch.git
+cd "AI Chatbot PyTorch"
 ```
 
-### 2️⃣ Install Dependencies
+2. Install required dependencies:
 ```bash
-pip install -r requirements.txt
+pip install torch nltk numpy
 ```
 
-### 3️⃣ Run the Application
-```bash
-python main.py  # or app.py depending on the project structure
+3. Download NLTK data:
+```python
+import nltk
+nltk.download('punkt')
+nltk.download('wordnet')
 ```
 
-## 📖 Usage
+## 🚀 Usage
 
-Detailed usage instructions will be provided based on the specific project requirements and functionality.
+### Training the Model
+
+Uncomment the training section in `main.py` and run:
+
+```python
+# Train a new model
+assistant = ChatbotAssistant('intents.json', function_mappings={'stocks': get_stocks})
+assistant.parse_intents()
+assistant.prepare_data()
+assistant.train_model(batch_size=8, lr=0.001, epochs=100)
+assistant.save_model('chatbot_model.pth', 'dimensions.json')
+```
+
+### Running the Chatbot
+
+```bash
+python main.py
+```
+
+The chatbot will start an interactive session where you can type messages and receive responses.
+
+## 🧠 Model Architecture
+
+The chatbot uses a custom PyTorch neural network:
+
+```python
+class ChatbotModel(nn.Module):
+    def __init__(self, input_size, output_size):
+        super(ChatbotModel, self).__init__()
+        self.fc1 = nn.Linear(input_size, 128)
+        self.fc2 = nn.Linear(128, 64)
+        self.fc3 = nn.Linear(64, output_size)
+        self.relu = nn.ReLU()
+        self.dropout = nn.Dropout(0.5)
+```
+
+**Architecture Details:**
+- Input Layer: Bag-of-words representation
+- Hidden Layer 1: 128 neurons with ReLU activation
+- Hidden Layer 2: 64 neurons with ReLU activation
+- Output Layer: Number of intent classes
+- Regularization: 50% Dropout between layers
+
+## 📊 Intent Configuration
+
+The chatbot understands various intents defined in `intents.json`:
+
+```json
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["Hi", "How are you", "Hello", "Good day"],
+      "responses": ["Hello!", "Good to see you again!"]
+    },
+    {
+      "tag": "stocks",
+      "patterns": ["What are my stocks?", "Show my stock portfolio"],
+      "responses": ["Here are your stocks!"]
+    }
+  ]
+}
+```
+
+## 🔧 Core Components
+
+### ChatbotAssistant Class
+
+The main class that handles:
+- **Intent Parsing**: Processes intents.json and extracts patterns
+- **Data Preprocessing**: Tokenization, lemmatization, and bag-of-words conversion
+- **Model Training**: Neural network training with PyTorch
+- **Inference**: Message processing and response generation
+
+### Key Methods
+
+```python
+# Process user messages
+def process_message(self, input_message):
+    words = self.tokenize_and_lemmatize(input_message)
+    bag = self.bag_of_words(words)
+    # Neural network prediction
+    predictions = self.model(bag_tensor)
+    predicted_intent = self.intents[predicted_class_index]
+    return response
+
+# Custom function integration
+function_mappings = {'stocks': get_stocks}
+```
+
+## 🎯 Training Process
+
+1. **Data Preparation**: Extract patterns from intents and create training data
+2. **Tokenization**: Break down sentences into words using NLTK
+3. **Lemmatization**: Reduce words to their root form
+4. **Bag-of-Words**: Convert text to numerical vectors
+5. **Neural Network Training**: Train using Adam optimizer and CrossEntropyLoss
+
+## 📈 Performance Features
+
+- **Dropout Regularization**: Prevents overfitting during training
+- **Adam Optimizer**: Efficient gradient-based optimization
+- **Batch Processing**: Configurable batch size for training
+- **Learning Rate Control**: Adjustable learning rate parameter
+
+## 💡 Example Interactions
+
+```
+Enter your message: Hello
+> Hello!
+
+Enter your message: What are my stocks?
+> Here are your stocks!
+['NVDA', 'GS', 'MSFT']  # Custom function output
+
+Enter your message: Tell me about programming
+> Programming, coding or software development, means writing computer code to automate tasks.
+```
 
 ## 🔮 Future Enhancements
 
-- [ ] Enhanced performance optimizations
-- [ ] Additional feature implementations
-- [ ] Mobile/responsive design improvements
-- [ ] Advanced analytics and monitoring
+- Web interface integration
+- More sophisticated NLP preprocessing
+- Context-aware conversations
+- Database integration for dynamic responses
+- Multi-language support
 
-## 🤝 Contributing
+## 👨‍💻 Author
 
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+**Macha Praveen**
+- GitHub: [@machapraveen](https://github.com/machapraveen)
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+## 📄 License
 
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🌟 Acknowledgments
-
-- Thanks to the open-source community for inspiration
-- Built with passion for advancing technology
-
-## 📞 Contact
-
-**Praveen Kumar Macha** - [@machapraveen](https://github.com/machapraveen)
-
-Project Link: [https://github.com/machapraveen/ai-chatbot-pytorch](https://github.com/machapraveen/ai-chatbot-pytorch)
-
----
-
-<div align="center">
-
-**⭐ Star this repository if it helped you! ⭐**
-
-</div>
+This project is open source and available under the MIT License.
